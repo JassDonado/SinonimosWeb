@@ -2,43 +2,43 @@ import { IPricing } from "@/types";
 
 export const pricingData: IPricing[] = [
     {
-        name: "Basic",
-        price: 29,
-        period: "month",
+        name: "Gratis",
+        price: 0,
+        period: "siempre",
         features: [
-            "Access to all basic courses",
-            "Community support",
-            "10 practice projects",
-            "Course completion certificate",
-            "Basic code review"
+            "Acceso a 50 palabras diarias",
+            "Modo práctica básico",
+            "5 minijuegos educativos",
+            "Seguimiento de progreso",
+            "Sin anuncios"
         ],
         mostPopular: false
     },
     {
-        name: "Pro",
-        price: 79,
-        period: "month",
+        name: "Escuela",
+        price: 10,
+        period: "mes",
         features: [
-            "Access to all Pro courses",
-            "Priority community support",
-            "30 practice projects",
-            "Course completion certificate",
-            "Advance code review",
-            "1-on-1 mentoring sessions",
-            "Job assistance"
+            "Acceso ilimitado a todas las palabras",
+            "Modo de aula para maestros",
+            "15 minijuegos educativos",
+            "Reportes de progreso detallados",
+            "Soporte para maestros",
+            "Acceso para toda la clase"
         ],
         mostPopular: true
     },
     {
-        name: "Enterprise",
-        price: 199,
-        period: "month",
+        name: "Familia",
+        price: 7,
+        period: "mes",
         features: [
-            "Access to all courses",
-            "Dedicated support",
-            "Unlimited projects",
-            "Course completion certificate",
-            "Premium code review"
+            "Acceso completo para hasta 4 niños",
+            "Modo competitivo familiar",
+            "Todos los minijuegos disponibles",
+            "Desafíos semanales",
+            "Premios virtuales",
+            "Estadísticas compartidas"
         ],
         mostPopular: false
     }

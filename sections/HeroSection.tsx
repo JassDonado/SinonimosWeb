@@ -5,25 +5,25 @@ import { motion } from "motion/react";
 
 export default function HeroSection() {
     const specialFeatures = [
-        "No credit card",
-        "30 days free trial",
-        "Setup in 10 minutes",
+        "100% Gratis",
+        "Para niños de primaria",
+        "Aprende jugando",
     ];
 
     return (
         <div className="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32">
             <div className="absolute top-30 -z-10 left-1/4 size-72 bg-pink-600 blur-[300px]"></div>
-            <motion.a href="https://prebuiltui.com?utm_source=pixels" className="group flex items-center gap-2 rounded-full p-1 pr-3 mt-44 text-pink-100 bg-pink-200/15"
+            <motion.a href="#" className="group flex items-center gap-2 rounded-full p-1 pr-3 mt-44 text-pink-100 bg-pink-200/15"
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
             >
                 <span className="bg-pink-800 text-white text-xs px-3.5 py-1 rounded-full">
-                    NEW
+                    EDUCATIVO
                 </span>
                 <p className="flex items-center gap-1">
-                    <span>Try 30 days free trial option </span>
+                    <span>Aprende nuevas palabras todos los días </span>
                     <ChevronRightIcon size={16} className="group-hover:translate-x-0.5 transition duration-300" />
                 </p>
             </motion.a>
@@ -33,8 +33,8 @@ export default function HeroSection() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 240, damping: 70, mass: 1 }}
             >
-                Free template to start your{" "}
-                <span className="move-gradient px-3 rounded-xl text-nowrap">Next.js site.</span>
+                Mejora tu{" "}
+                <span className="move-gradient px-3 rounded-xl text-nowrap">vocabulario</span>
             </motion.h1>
             <motion.p className="text-base text-center text-slate-200 max-w-lg mt-6"
                 initial={{ y: 50, opacity: 0 }}
@@ -42,7 +42,7 @@ export default function HeroSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
             >
-                No complexity. No noise. Just clean, reliable automation to boost your team’s efficiency.</motion.p>
+                Aprende sinónimos de forma divertida e interactiva jugando. Expande tu vocabulario mientras disfrutas con nuestras actividades educativas.</motion.p>
             <motion.div className="flex items-center gap-4 mt-8"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -50,11 +50,10 @@ export default function HeroSection() {
                 transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
             >
                 <button className="bg-pink-600 hover:bg-pink-700 text-white rounded-full px-7 h-11">
-                    Get started
+                    Comienza a Jugar
                 </button>
                 <button className="flex items-center gap-2 border border-pink-900 hover:bg-pink-950/50 transition rounded-full px-6 h-11">
-                    <VideoIcon strokeWidth={1} />
-                    <span>Watch demo</span>
+                    <span>Más Información</span>
                 </button>
             </motion.div>
 
