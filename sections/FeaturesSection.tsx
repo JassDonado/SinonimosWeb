@@ -1,31 +1,45 @@
 'use client'
 import SectionTitle from "@/components/SectionTitle";
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import { featuresData } from "@/data/features";
-import { IFeature } from "@/types";
 
 export default function FeaturesSection() {
+    const ejemplos = [
+        { palabra: "casa", sinonimo: "hogar, vivienda, residencia" },
+        { palabra: "auto", sinonimo: "carro, automóvil, vehículo" },
+        { palabra: "comenzar", sinonimo: "iniciar, empezar, arrancar" },
+        { palabra: "terminar", sinonimo: "finalizar, concluir, acabar" },
+        { palabra: "grande", sinonimo: "enorme, gigante, amplio" },
+        { palabra: "feliz", sinonimo: "contento, alegre, satisfecho" },
+    ];
+
     return (
-        <div id="features" className="px-4 md:px-16 lg:px-24 xl:px-32">
-            <SectionTitle text1="Features" text2="What you get" text3="Components, patterns and pages — everything you need to ship." />
+        <div id="ejemplos" className="px-4 md:px-16 lg:px-24 xl:px-32 py-16">
+            <SectionTitle text1="Ejemplos" text2="Sinónimos en acción" text3="Descubre cómo las palabras pueden tener significados similares y enriquecer tu vocabulario." />
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-4 mt-16 px-6">
-                {featuresData.map((feature: IFeature, index: number) => (
-                    <motion.div key={index} className={`${index === 1 ? 'p-px rounded-[13px] bg-linear-to-br from-pink-600 to-slate-800' : ''}`}
+                {ejemplos.map((item, index) => (
+                    <motion.div 
+                        key={index} 
+                        className={`${index === 1 ? 'p-px rounded-2xl bg-linear-to-br from-pink-600 to-slate-800' : ''}`}
                         initial={{ y: 150, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.15, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
                     >
-                        <div className="p-6 rounded-xl space-y-4 border border-slate-800 bg-slate-950 max-w-80 w-full">
-                            {feature.icon}
-                            <h3 className="text-base font-medium text-white">
-                                {feature.title}
-                            </h3>
-                            <p className="text-slate-400 line-clamp-2 pb-4">
-                                {feature.description}
+                        <div className="p-8 rounded-xl space-y-6 border border-pink-900/30 bg-slate-900/50 backdrop-blur max-w-96 w-full">
+                            <p className="text-sm font-semibold text-pink-400">
+                                Palabra
                             </p>
+
+                            <h3 className="text-3xl font-extrabold text-white">
+                                {item.palabra}
+                            </h3>
+
+                            <div className="pt-4 border-t border-pink-900/20">
+                                <p className="text-lg text-slate-300">
+                                    Sinónimos:{" "}
+                                    <span className="font-bold text-pink-300">{item.sinonimo}</span>
+                                </p>
+                            </div>
                         </div>
                     </motion.div>
                 ))}
