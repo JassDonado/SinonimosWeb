@@ -11,7 +11,7 @@ export default function HeroSection() {
 
     return (
         <div className="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32 py-16">
-            <div className="absolute top-30 -z-10 left-1/4 size-72 bg-pink-600 blur-[300px]"></div>
+            <div className="absolute top-30 -z-10 left-1/4 size-72 bg-blue-600 blur-[300px]"></div>
             
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 w-full">
                 
@@ -34,7 +34,7 @@ export default function HeroSection() {
 
                 {/* Columna derecha */}
                 <motion.div 
-                    className="rounded-2xl border border-pink-900/30 bg-slate-900/50 backdrop-blur p-8"
+                    className="rounded-2xl border border-blue-900/30 bg-slate-900/50 backdrop-blur p-8"
                     initial={{ x: 50, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
@@ -45,22 +45,22 @@ export default function HeroSection() {
                     </h2>
 
                     <p className="mt-6 text-2xl leading-relaxed text-slate-200">
-                        La torre es <span className="font-bold text-pink-300">grande</span> y se puede ver desde lejos.
+                        La torre es <span className="font-bold text-blue-300">grande</span> y se puede ver desde lejos.
                     </p>
 
-                    <p className="mt-6 font-bold text-2xl leading-relaxed text-pink-400">
+                    <p className="mt-6 font-bold text-2xl leading-relaxed text-blue-400">
                         Usemos otra palabra
                     </p>
 
                     <p className="mt-6 text-2xl leading-relaxed text-slate-200">
-                        La torre es <span className="font-bold text-pink-300">enorme</span> y se puede ver desde lejos.
+                        La torre es <span className="font-bold text-blue-300">enorme</span> y se puede ver desde lejos.
                     </p>
 
                     <p className="mt-6 text-lg leading-relaxed text-slate-300">
-                        En este ejemplo, <span className="font-bold text-pink-300">"grande"</span> y <span className="font-bold text-pink-300">"enorme"</span> son sinónimos, ya que ambos describen el tamaño de la torre.
+                        En este ejemplo, <span className="font-bold text-blue-300">"grande"</span> y <span className="font-bold text-blue-300">"enorme"</span> son sinónimos, ya que ambos describen el tamaño de la torre.
                     </p>
 
-                    <a href="#ejemplos" className="inline-flex items-center justify-center mt-8 rounded-xl bg-pink-600 px-6 py-4 text-lg font-semibold text-white transition hover:bg-pink-700 active:scale-95">
+                    <a href="#ejemplos" className="inline-flex items-center justify-center mt-8 rounded-xl bg-blue-600 px-6 py-4 text-lg font-semibold text-white transition hover:bg-blue-700 active:scale-95">
                         ¡Veamos más ejemplos!
                     </a>
                 </motion.div>
@@ -80,7 +80,7 @@ export default function HeroSection() {
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.2, duration: 0.3 }}
                     >
-                        <CheckIcon className="size-5 text-pink-600" />
+                        <CheckIcon className="size-5 text-blue-600" />
                         <span className="text-slate-300">{feature}</span>
                     </motion.p>
                 ))}

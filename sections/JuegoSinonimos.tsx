@@ -183,9 +183,9 @@ export default function JuegoSinonimos() {
         id="jugar"
         className="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32 py-16"
       >
-        <div className="absolute top-30 -z-10 left-1/4 size-72 bg-pink-600 blur-[300px]"></div>
-        <div className="max-w-4xl rounded-2xl border border-pink-900/30 bg-slate-900/50 backdrop-blur p-8 w-full">
-          <p className="text-lg font-semibold text-pink-200">Cargando juego...</p>
+        <div className="absolute top-30 -z-10 left-1/4 size-72 bg-blue-600 blur-[300px]"></div>
+        <div className="max-w-4xl rounded-2xl border border-blue-900/30 bg-slate-900/50 backdrop-blur p-8 w-full">
+          <p className="text-lg font-semibold text-blue-200">Cargando juego...</p>
         </div>
       </section>
     );
@@ -197,8 +197,8 @@ export default function JuegoSinonimos() {
         id="jugar"
         className="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32 py-16"
       >
-        <div className="absolute top-30 -z-10 left-1/4 size-72 bg-pink-600 blur-[300px]"></div>
-        <div className="max-w-3xl rounded-2xl border border-pink-900/30 bg-slate-900/50 backdrop-blur p-8 w-full">
+        <div className="absolute top-30 -z-10 left-1/4 size-72 bg-blue-600 blur-[300px]"></div>
+        <div className="max-w-3xl rounded-2xl border border-blue-900/30 bg-slate-900/50 backdrop-blur p-8 w-full">
           <h2 className="text-4xl font-extrabold text-white">
             ¡Juego terminado!
           </h2>
@@ -207,7 +207,7 @@ export default function JuegoSinonimos() {
             Has concluido con la clase de sinónimos.
           </p>
 
-          <div className="mt-4 inline-flex rounded-2xl bg-pink-900/40 backdrop-blur px-6 py-4 text-3xl font-extrabold text-pink-300 border border-pink-500/30">
+          <div className="mt-4 inline-flex rounded-2xl bg-blue-900/40 backdrop-blur px-6 py-4 text-3xl font-extrabold text-blue-300 border border-blue-500/30">
             {puntaje} / {totalPreguntas}
           </div>
 
@@ -217,7 +217,7 @@ export default function JuegoSinonimos() {
 
           <button
             onClick={reiniciarJuego}
-            className="mt-8 flex items-center gap-2 rounded-xl bg-pink-600 hover:bg-pink-700 active:scale-95 transition-all px-5 py-3 font-semibold text-white"
+            className="mt-8 flex items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all px-5 py-3 font-semibold text-white"
           >
             <RefreshCwIcon size={18} />
             Juguemos de nuevo
@@ -232,14 +232,14 @@ export default function JuegoSinonimos() {
       id="jugar"
       className="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32 py-16"
     >
-      <div className="absolute top-30 -z-10 left-1/4 size-72 bg-pink-600 blur-[300px]"></div>
-      <div className="max-w-4xl rounded-2xl border border-pink-900/30 bg-slate-900/50 backdrop-blur p-8 w-full">
+      <div className="absolute top-30 -z-10 left-1/4 size-72 bg-blue-600 blur-[300px]"></div>
+      <div className="max-w-4xl rounded-2xl border border-blue-900/30 bg-slate-900/50 backdrop-blur p-8 w-full">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <h2 className="text-4xl font-extrabold text-white">
             Juguemos con sinónimos
           </h2>
 
-          <div className="rounded-2xl bg-pink-900/40 backdrop-blur px-4 py-2 text-lg font-bold text-pink-300 border border-pink-500/30">
+          <div className="rounded-2xl bg-blue-900/40 backdrop-blur px-4 py-2 text-lg font-bold text-blue-300 border border-blue-500/30">
             Puntaje: {puntaje}
           </div>
         </div>
@@ -254,7 +254,7 @@ export default function JuegoSinonimos() {
 
           <div className="h-4 w-full overflow-hidden rounded-full bg-slate-700/50">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-pink-500 to-pink-400 transition-all duration-500 ease-in-out"
+              className="h-full rounded-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-500 ease-in-out"
               style={{ width: `${progreso}%` }}
             />
           </div>
@@ -265,7 +265,7 @@ export default function JuegoSinonimos() {
             Escribamos el sinónimo de:
           </p>
 
-          <h3 className="mt-3 text-5xl font-extrabold bg-linear-to-r from-pink-400 to-pink-300 text-transparent bg-clip-text">
+          <h3 className="mt-3 text-5xl font-extrabold bg-linear-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
             {preguntaActual.palabra}
           </h3>
 
@@ -276,14 +276,14 @@ export default function JuegoSinonimos() {
               onChange={(e) => setRespuesta(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && verificarRespuesta()}
               placeholder="Escribe tu respuesta aquí"
-              className="w-full rounded-xl border border-pink-900/30 bg-slate-800/50 backdrop-blur px-5 py-4 text-lg text-white outline-none transition placeholder-slate-400 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/30"
+              className="w-full rounded-xl border border-blue-900/30 bg-slate-800/50 backdrop-blur px-5 py-4 text-lg text-white outline-none transition placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
             />
           </div>
 
           <div className="mt-6 flex flex-wrap gap-4">
             <button
               onClick={verificarRespuesta}
-              className="rounded-xl bg-pink-600 hover:bg-pink-700 active:scale-95 transition-all px-6 py-3 font-semibold text-white"
+              className="rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all px-6 py-3 font-semibold text-white"
             >
               Verificar
             </button>

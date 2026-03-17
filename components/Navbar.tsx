@@ -18,13 +18,13 @@ export default function Navbar() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
             >
-                <div className="text-xl font-bold text-pink-500">
+                <div className="text-xl font-bold text-blue-500">
                     Sinónimos en Contexto
                 </div>
 
                 
 
-                <a href="#jugar" className="hidden md:block px-6 py-2.5 bg-pink-600 hover:bg-pink-700 active:scale-95 transition-all rounded-full">
+                <a href="#jugar" className="hidden md:block px-6 py-2.5 bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all rounded-full">
                     Jugar ahora
                 </a>
                 <button onClick={() => setIsOpen(true)} className="md:hidden">

@@ -1,6 +1,6 @@
 'use client'
 import { footerData } from "@/data/footer";
-import { DribbbleIcon, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from "lucide-react";
+import { InstagramIcon, LinkedinIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
@@ -19,11 +19,11 @@ export default function Footer() {
                 <p className="max-w-60">Paginas del Desarrollador.</p>
                 <div className="flex items-center gap-4 mt-3">
                     
-                    <a href="" target="_blank" rel="noreferrer">
-                        <LinkedinIcon className="size-5 hover:text-pink-500" />
+                    <a href="https://www.linkedin.com/in/jasseff-donado-campo-2053a6241?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B6eMUN6j4TqWMaAnWPUDCNw%3D%3D" target="_blank" rel="noreferrer">
+                        <LinkedinIcon className="size-5 hover:text-blue-500" />
                     </a>
-                    <a href="" target="_blank" rel="noreferrer">
-                        <InstagramIcon className="size-5 hover:text-pink-500" />
+                    <a href="https://www.instagram.com/donadojasseff/" target="_blank" rel="noreferrer">
+                        <InstagramIcon className="size-5 hover:text-blue-500" />
                     </a>
                     
                 </div>

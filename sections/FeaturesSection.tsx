@@ -19,14 +19,14 @@ export default function FeaturesSection() {
                 {ejemplos.map((item, index) => (
                     <motion.div 
                         key={index} 
-                        className={`${index === 1 ? 'p-px rounded-2xl bg-linear-to-br from-pink-600 to-slate-800' : ''}`}
+                        className={`${index === 1 ? 'p-px rounded-2xl bg-linear-to-br from-blue-600 to-slate-800' : ''}`}
                         initial={{ y: 150, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.15, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
                     >
-                        <div className="p-8 rounded-xl space-y-6 border border-pink-900/30 bg-slate-900/50 backdrop-blur max-w-96 w-full">
-                            <p className="text-sm font-semibold text-pink-400">
+                        <div className="p-8 rounded-xl space-y-6 border border-blue-900/30 bg-slate-900/50 backdrop-blur max-w-96 w-full">
+                            <p className="text-sm font-semibold text-blue-400">
                                 Palabra
                             </p>
 
@@ -34,10 +34,10 @@ export default function FeaturesSection() {
                                 {item.palabra}
                             </h3>
 
-                            <div className="pt-4 border-t border-pink-900/20">
+                            <div className="pt-4 border-t border-blue-900/20">
                                 <p className="text-lg text-slate-300">
                                     Sinónimos:{" "}
-                                    <span className="font-bold text-pink-300">{item.sinonimo}</span>
+                                    <span className="font-bold text-blue-300">{item.sinonimo}</span>
                                 </p>
                             </div>
                         </div>
@@ -45,7 +45,7 @@ export default function FeaturesSection() {
                 ))}
             </div>
             <div className="mt-40 relative mx-auto max-w-5xl">
-                <div className="absolute -z-50 size-100 -top-10 -left-20 aspect-square rounded-full bg-pink-500/40 blur-3xl"></div>
+                <div className="absolute -z-50 size-100 -top-10 -left-20 aspect-square rounded-full bg-blue-500/40 blur-3xl"></div>
                 <motion.p className="text-slate-300 text-lg text-left max-w-3xl"
                     initial={{ y: 150, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
