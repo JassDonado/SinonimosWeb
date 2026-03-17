@@ -24,12 +24,9 @@ export default function Navbar() {
 
                 
 
-                <a href="#jugar" className="hidden md:block px-6 py-2.5 bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all rounded-full">
+                <a href="#jugar" className="px-4 md:px-6 py-2 md:py-2.5 bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all rounded-full text-sm md:text-base">
                     Jugar ahora
                 </a>
-                <button onClick={() => setIsOpen(true)} className="md:hidden">
-                    <MenuIcon size={26} className="active:scale-90 transition" />
-                </button>
             </motion.nav>
 
             

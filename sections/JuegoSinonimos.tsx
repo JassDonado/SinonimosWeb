@@ -99,7 +99,7 @@ export default function JuegoSinonimos() {
       });
       setMensaje("");
       setTipoMensaje("");
-    }, 700);
+    }, 2500);
   };
 
   const avanzarDespuesDeCorrecta = () => {
@@ -131,7 +131,7 @@ export default function JuegoSinonimos() {
         const siguiente = prev + 1;
         return siguiente >= preguntas.length ? 0 : siguiente;
       });
-    }, 900);
+    }, 2500);
   };
 
   const verificarRespuesta = () => {
