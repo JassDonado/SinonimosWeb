@@ -1,7 +1,7 @@
 'use client'
 import { CheckIcon, ChevronRightIcon } from "lucide-react";
 import { motion } from "motion/react";
-
+import Image from "next/image";
 export default function HeroSection() {
     const specialFeatures = [
         "Mejoran el vocabulario.",
@@ -26,10 +26,13 @@ export default function HeroSection() {
                         ¡Aprendamos qué son los sinónimos y cómo usarlos correctamente!
                     </h1>
 
-                    <p className="mt-6 max-w-2xl text-xl leading-relaxed text-slate-200">
+                    <div>
+                        
+                        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-slate-200">
                         Los sinónimos son palabras que tienen un significado igual o muy parecido.
                         Se usan para enriquecer la escritura, evitar repeticiones y expresarse mejor.
-                    </p>
+                        </p>
+                    </div>
                 </motion.div>
 
                 {/* Columna derecha */}
@@ -55,7 +58,13 @@ export default function HeroSection() {
                     <p className="mt-6 text-2xl leading-relaxed text-slate-200">
                         La torre es <span className="font-bold text-blue-300">enorme</span> y se puede ver desde lejos.
                     </p>
-
+                        <Image 
+                            src="/imagenes/FotoEnorme.png" 
+                            alt="Foto Enorme" 
+                            width={600}
+                            height={400}
+                            className="mx-auto rounded-lg shadow-lg object-cover w-full h-auto"
+                        />
                     <p className="mt-6 text-lg leading-relaxed text-slate-300">
                         En este ejemplo, <span className="font-bold text-blue-300">"grande"</span> y <span className="font-bold text-blue-300">"enorme"</span> son sinónimos, ya que ambos describen el tamaño de la torre.
                     </p>
