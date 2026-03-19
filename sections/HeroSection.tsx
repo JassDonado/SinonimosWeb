@@ -1,5 +1,5 @@
 'use client'
-import { CheckIcon, ChevronRightIcon } from "lucide-react";
+import { CheckIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 export default function HeroSection() {
@@ -10,8 +10,8 @@ export default function HeroSection() {
     ];
 
     return (
-        <div className="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32 py-16">
-            <div className="absolute top-30 -z-10 left-1/4 size-72 bg-blue-600 blur-[300px]"></div>
+        <div className="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-30 py-20">
+            <div className="absolute top-30 -z-10 left-1/4 size-180 bg-blue-600 blur-[300px]"></div>
             
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 w-full">
                 
@@ -76,7 +76,7 @@ export default function HeroSection() {
             </div>
 
             <motion.div 
-                className="flex flex-wrap justify-center items-center gap-4 md:gap-14 mt-16 w-full"
+                className="flex flex-wrap justify-center items-center gap-4 md:gap-18 mt-10 w-full"
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -89,7 +89,7 @@ export default function HeroSection() {
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.2, duration: 0.3 }}
                     >
-                        <CheckIcon className="size-5 text-blue-600" />
+                        <CheckIcon className="size-10 text-blue-600" />
                         <span className="text-slate-300">{feature}</span>
                     </motion.p>
                 ))}

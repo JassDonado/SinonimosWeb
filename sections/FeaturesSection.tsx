@@ -2,7 +2,6 @@
 import SectionTitle from "@/components/SectionTitle";
 import { motion } from "motion/react";
 import Image from "next/image";
-import NinosJugando from "/public/imagenes/NinosEstudiando.png";
 
 export default function FeaturesSection() {
     const ejemplos = [
@@ -15,9 +14,9 @@ export default function FeaturesSection() {
     ];
 
     return (
-        <div id="ejemplos" className="px-4 md:px-16 lg:px-24 xl:px-32 py-16">
+        <div id="ejemplos" className="px-4 md:px-16 lg:px-24 xl:px-32">
             <SectionTitle text1="Ejemplos" text2="Sinónimos en acción" text3="Descubre cómo las palabras pueden tener significados similares y enriquecer tu vocabulario." />
-            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-4 mt-16 px-6">
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-4 mt-10 px-6">
                 {ejemplos.map((item, index) => (
                     <motion.div 
                         key={index} 
@@ -46,7 +45,7 @@ export default function FeaturesSection() {
                     </motion.div>
                 ))}
             </div>
-            <div className="mt-40 relative mx-auto max-w-5xl">
+            <div className=" relative mx-auto max-w-5xl">
                 <div className="absolute -z-50 size-100 -top-10 -left-20 aspect-square rounded-full bg-blue-500/40 blur-3xl"></div>
                 <motion.p className="text-slate-300 text-lg text-left max-w-3xl"
                     initial={{ y: 150, opacity: 0 }}
