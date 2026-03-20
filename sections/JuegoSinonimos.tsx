@@ -2,35 +2,33 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { ChevronRightIcon, CheckIcon, RefreshCwIcon } from "lucide-react";
-import Image from "next/image";
 
 type Pregunta = {
   palabra: string;
   respuestas: string[];
-  respondidaCorrectamente: boolean;
 };
 
 const bancoPreguntas: Pregunta[] = [
-  { palabra: "grande", respuestas: ["enorme", "gigante", "amplio","inmenso","colosal","extenso"], respondidaCorrectamente: false },
-  { palabra: "feliz", respuestas: ["alegre", "contento", "satisfecho","dichoso","encantado","jubiloso"], respondidaCorrectamente: false },
-  { palabra: "casa", respuestas: ["hogar", "vivienda", "residencia","domicilio","morada"], respondidaCorrectamente: false },
-  { palabra: "comenzar", respuestas: ["iniciar", "empezar", "arrancar","principiar","dar inicio"], respondidaCorrectamente: false },
-  { palabra: "terminar", respuestas: ["finalizar", "acabar", "concluir","completar","cerrar"], respondidaCorrectamente: false },
-  { palabra: "rápido", respuestas: ["veloz", "ligero", "ágil","inmediato","acelerado"], respondidaCorrectamente: false },
-  { palabra: "bonito", respuestas: ["hermoso", "bello", "lindo","atractivo","precioso"], respondidaCorrectamente: false },
-  { palabra: "inteligente", respuestas: ["listo", "sabio", "brillante","astuto","ingenioso"], respondidaCorrectamente: false },
-  { palabra: "difícil", respuestas: ["complicado", "duro", "arduo","complejo","desafiante"], respondidaCorrectamente: false },
-  { palabra: "pequeño", respuestas: ["chico", "diminuto", "reducido","minúsculo","corto"], respondidaCorrectamente: false },
-  { palabra: "hablar", respuestas: ["conversar", "dialogar", "platicar","comunicar","expresar"], respondidaCorrectamente: false },
-  { palabra: "mirar", respuestas: ["observar", "ver", "contemplar","examinar","visualizar"], respondidaCorrectamente: false },
-  { palabra: "trabajar", respuestas: ["laborar", "emplearse", "ejercer","desempeñar","producir"], respondidaCorrectamente: false },
-  { palabra: "pensar", respuestas: ["reflexionar", "considerar", "meditar","razonar","analizar"], respondidaCorrectamente: false },
-  { palabra: "ayudar", respuestas: ["apoyar", "asistir", "socorrer","colaborar","auxiliar"], respondidaCorrectamente: false },
-  { palabra: "caminar", respuestas: ["andar", "pasear", "transitar","recorrer","marchar"], respondidaCorrectamente: false },
-  { palabra: "comprar", respuestas: ["adquirir", "obtener", "conseguir","aprovisionarse"], respondidaCorrectamente: false },
-  { palabra: "enseñar", respuestas: ["educar", "instruir", "explicar","formar","guiar","mentorizar","entrenar"], respondidaCorrectamente: false },
-  { palabra: "aprender", respuestas: ["estudiar", "asimilar", "comprender","dominar","captar","adquirir conocimiento"], respondidaCorrectamente: false },
-  { palabra: "fácil", respuestas: ["sencillo", "simple","accesible","claro","ligero"], respondidaCorrectamente: false },
+  { palabra: "grande", respuestas: ["enorme", "gigante", "amplio", "inmenso", "colosal", "extenso"] },
+  { palabra: "feliz", respuestas: ["alegre", "contento", "satisfecho", "dichoso", "encantado", "jubiloso"] },
+  { palabra: "casa", respuestas: ["hogar", "vivienda", "residencia", "domicilio", "morada"] },
+  { palabra: "comenzar", respuestas: ["iniciar", "empezar", "arrancar", "principiar", "dar inicio"] },
+  { palabra: "terminar", respuestas: ["finalizar", "acabar", "concluir", "completar", "cerrar"] },
+  { palabra: "rápido", respuestas: ["veloz", "ligero", "ágil", "inmediato", "acelerado"] },
+  { palabra: "bonito", respuestas: ["hermoso", "bello", "lindo", "atractivo", "precioso"] },
+  { palabra: "inteligente", respuestas: ["listo", "sabio", "brillante", "astuto", "ingenioso"] },
+  { palabra: "difícil", respuestas: ["complicado", "duro", "arduo", "complejo", "desafiante"] },
+  { palabra: "pequeño", respuestas: ["chico", "diminuto", "reducido", "minúsculo", "corto"] },
+  { palabra: "hablar", respuestas: ["conversar", "dialogar", "platicar", "comunicar", "expresar"] },
+  { palabra: "mirar", respuestas: ["observar", "ver", "contemplar", "examinar", "visualizar"] },
+  { palabra: "trabajar", respuestas: ["laborar", "emplearse", "ejercer", "desempeñar", "producir"] },
+  { palabra: "pensar", respuestas: ["reflexionar", "considerar", "meditar", "razonar", "analizar"] },
+  { palabra: "ayudar", respuestas: ["apoyar", "asistir", "socorrer", "colaborar", "auxiliar"] },
+  { palabra: "caminar", respuestas: ["andar", "pasear", "transitar", "recorrer", "marchar"] },
+  { palabra: "comprar", respuestas: ["adquirir", "obtener", "conseguir", "aprovisionarse"] },
+  { palabra: "enseñar", respuestas: ["educar", "instruir", "explicar", "formar", "guiar", "mentorizar", "entrenar"] },
+  { palabra: "aprender", respuestas: ["estudiar", "asimilar", "comprender", "dominar", "captar", "adquirir conocimiento"] },
+  { palabra: "fácil", respuestas: ["sencillo", "simple", "accesible", "claro", "ligero"] },
 ];
 
 function normalizarTexto(texto: string) {
@@ -46,139 +44,134 @@ function mezclarPreguntas(array: Pregunta[]) {
 }
 
 function obtenerPreguntasAleatorias() {
-  return mezclarPreguntas(bancoPreguntas)
-    .slice(0, 10)
-    .map((pregunta) => ({
-      ...pregunta,
-      respondidaCorrectamente: false,
-    }));
+  return mezclarPreguntas(bancoPreguntas).slice(0, 5);
 }
 
 export default function JuegoSinonimos() {
-  const [preguntas, setPreguntas] = useState<Pregunta[]>([]);
-  const [indiceActual, setIndiceActual] = useState(0);
+  const [preguntasPendientes, setPreguntasPendientes] = useState<Pregunta[]>([]);
+  const [totalPreguntas, setTotalPreguntas] = useState(0);
   const [respuesta, setRespuesta] = useState("");
   const [puntaje, setPuntaje] = useState(0);
   const [mensaje, setMensaje] = useState("");
   const [tipoMensaje, setTipoMensaje] = useState<"ok" | "error" | "skip" | "">("");
   const [terminado, setTerminado] = useState(false);
   const [cargado, setCargado] = useState(false);
+  const [bloqueado, setBloqueado] = useState(false);
 
   useEffect(() => {
-    setPreguntas(obtenerPreguntasAleatorias());
-    setCargado(true);
+    iniciarJuego();
   }, []);
 
-  const totalPreguntas = preguntas.length;
+  const iniciarJuego = () => {
+    const seleccionadas = obtenerPreguntasAleatorias();
+    setPreguntasPendientes(seleccionadas);
+    setTotalPreguntas(seleccionadas.length);
+    setRespuesta("");
+    setPuntaje(0);
+    setMensaje("");
+    setTipoMensaje("");
+    setTerminado(false);
+    setBloqueado(false);
+    setCargado(true);
+  };
 
-  const preguntasCorrectas = preguntas.filter(
-    (pregunta) => pregunta.respondidaCorrectamente
-  ).length;
+  const preguntasCorrectas = totalPreguntas - preguntasPendientes.length;
 
   const progreso = useMemo(() => {
     if (totalPreguntas === 0) return 0;
     return (preguntasCorrectas / totalPreguntas) * 100;
   }, [preguntasCorrectas, totalPreguntas]);
 
-  const preguntaActual = preguntas[indiceActual];
+  const preguntaActual = preguntasPendientes[0];
 
-  const moverPreguntaAlFinal = () => {
-    setPreguntas((prev) => {
-      const copia = [...prev];
-      const [preguntaMovida] = copia.splice(indiceActual, 1);
-      copia.push(preguntaMovida);
-      return copia;
-    });
+  const avanzarTrasCorrecta = () => {
+    setBloqueado(true);
 
-    setRespuesta("");
     setTimeout(() => {
-      setIndiceActual((prev) => {
-        if (prev >= preguntas.length - 1) {
-          return 0;
-        }
-        return prev;
-      });
-      setMensaje("");
-      setTipoMensaje("");
-    }, 2500);
-  };
+      setPreguntasPendientes((prev) => {
+        const nuevas = prev.slice(1);
 
-  const avanzarDespuesDeCorrecta = () => {
-    setTimeout(() => {
-      setPreguntas((prev) => {
-        const actualizadas = [...prev];
-        actualizadas[indiceActual] = {
-          ...actualizadas[indiceActual],
-          respondidaCorrectamente: true,
-        };
-
-        const todasRespondidas = actualizadas.every(
-          (pregunta) => pregunta.respondidaCorrectamente
-        );
-
-        if (todasRespondidas) {
+        if (nuevas.length === 0) {
           setTerminado(true);
-          return actualizadas;
         }
 
-        return actualizadas;
+        return nuevas;
       });
 
       setRespuesta("");
       setMensaje("");
       setTipoMensaje("");
+      setBloqueado(false);
+    }, 1200);
+  };
 
-      setIndiceActual((prev) => {
-        const siguiente = prev + 1;
-        return siguiente >= preguntas.length ? 0 : siguiente;
+  const moverActualAlFinal = () => {
+    setBloqueado(true);
+
+    setTimeout(() => {
+      setPreguntasPendientes((prev) => {
+        if (prev.length <= 1) return prev;
+        const [actual, ...resto] = prev;
+        return [...resto, actual];
       });
-    }, 2500);
+
+      setRespuesta("");
+      setMensaje("");
+      setTipoMensaje("");
+      setBloqueado(false);
+    }, 1200);
   };
 
   const verificarRespuesta = () => {
+    if (bloqueado || !preguntaActual) return;
+
     if (!respuesta.trim()) {
-      setMensaje("Escribe un sinónimo antes de verificar.");
+      setMensaje("Escriba la palabra correcta antes de verificar.");
       setTipoMensaje("error");
       return;
     }
-
-    if (!preguntaActual) return;
 
     const valorUsuario = normalizarTexto(respuesta);
     const respuestasValidas = preguntaActual.respuestas.map(normalizarTexto);
 
     if (respuestasValidas.includes(valorUsuario)) {
-      if (!preguntaActual.respondidaCorrectamente) {
-        setPuntaje((prev) => prev + 1);
+      setPuntaje((prev) => prev + 1);
+      setMensaje("¡Palabra correcta! Ganaste un punto.");
+      setTipoMensaje("ok");
+      avanzarTrasCorrecta();
+    } else {
+      if (preguntasPendientes.length === 1) {
+        setMensaje("No es correcto. Inténtalo de nuevo con esta misma palabra.");
+        setTipoMensaje("error");
+        setRespuesta("");
+        return;
       }
 
-      setMensaje("¡Correcto! Sumaste 1 punto.");
-      setTipoMensaje("ok");
-      avanzarDespuesDeCorrecta();
-    } else {
-      setMensaje("No es correcto. La palabra volverá a aparecer más adelante.");
+      setMensaje("No es correcto. Te mostraremos otra palabra y esta volverá después.");
       setTipoMensaje("error");
-      moverPreguntaAlFinal();
+      moverActualAlFinal();
     }
   };
 
   const pasarPregunta = () => {
-    setMensaje("Has pasado esta palabra. Volverá a salir después y no suma puntos todavía.");
+    if (bloqueado || !preguntaActual) return;
+
+    if (preguntasPendientes.length === 1) {
+      setMensaje("Solo queda esta palabra. Debes responderla correctamente para terminar.");
+      setTipoMensaje("skip");
+      return;
+    }
+
+    setMensaje("Has pasado esta palabra. Verás otra ahora y esta volverá después.");
     setTipoMensaje("skip");
-    moverPreguntaAlFinal();
+    moverActualAlFinal();
   };
 
   const reiniciarJuego = () => {
-    setPreguntas(obtenerPreguntasAleatorias());
-    setIndiceActual(0);
-    setRespuesta("");
-    setPuntaje(0);
-    setMensaje("");
-    setTipoMensaje("");
-    setTerminado(false);
+    iniciarJuego();
   };
 
-  if (!cargado || preguntas.length === 0) {
+  if (!cargado || preguntasPendientes.length === 0 && !terminado) {
     return (
       <section
         id="jugar"
@@ -234,6 +227,7 @@ export default function JuegoSinonimos() {
       className="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32 py-16"
     >
       <div className="absolute top-30 -z-10 left-1/4 size-72 bg-blue-600 blur-[300px]"></div>
+
       <div className="max-w-4xl rounded-2xl border border-blue-900/30 bg-slate-900/50 backdrop-blur p-8 w-full">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <h2 className="text-4xl font-extrabold text-white">
@@ -267,32 +261,34 @@ export default function JuegoSinonimos() {
           </p>
 
           <h3 className="mt-3 text-5xl font-extrabold bg-linear-to-r from-blue-400 to-blue-300 text-transparent bg-clip-text">
-            {preguntaActual.palabra}
+            {preguntaActual?.palabra}
           </h3>
-
 
           <div className="mt-8">
             <input
               type="text"
               value={respuesta}
               onChange={(e) => setRespuesta(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && verificarRespuesta()}
+              onKeyDown={(e) => e.key === "Enter" && verificarRespuesta()}
               placeholder="Escribe tu respuesta aquí"
-              className="w-full rounded-xl border border-blue-900/30 bg-slate-800/50 backdrop-blur px-5 py-4 text-lg text-white outline-none transition placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
+              disabled={bloqueado}
+              className="w-full rounded-xl border border-blue-900/30 bg-slate-800/50 backdrop-blur px-5 py-4 text-lg text-white outline-none transition placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 disabled:opacity-60"
             />
           </div>
 
           <div className="mt-6 flex flex-wrap gap-4">
             <button
               onClick={verificarRespuesta}
-              className="rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all px-6 py-3 font-semibold text-white"
+              disabled={bloqueado}
+              className="rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all px-6 py-3 font-semibold text-white disabled:opacity-60"
             >
               Verificar
             </button>
 
             <button
               onClick={pasarPregunta}
-              className="flex items-center gap-2 rounded-xl bg-slate-700/50 hover:bg-slate-600/50 active:scale-95 backdrop-blur transition-all px-6 py-3 font-semibold text-slate-200 border border-slate-600/30"
+              disabled={bloqueado}
+              className="flex items-center gap-2 rounded-xl bg-slate-700/50 hover:bg-slate-600/50 active:scale-95 backdrop-blur transition-all px-6 py-3 font-semibold text-slate-200 border border-slate-600/30 disabled:opacity-60"
             >
               <ChevronRightIcon size={18} />
               Pasar
